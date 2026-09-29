@@ -63,11 +63,9 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, collapsed, setCollapsed
 
       {/* Sidebar Container */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 flex flex-col bg-white dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800/80 transition-all duration-300 ${
-          collapsed ? 'w-20' : 'w-64'
-        } ${
-          isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-        }`}
+        className={`fixed top-0 bottom-0 left-0 z-50 flex flex-col bg-white dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800/80 transition-all duration-300 ${collapsed ? 'w-20' : 'w-64'
+          } ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+          }`}
       >
         {/* Top Header / Brand */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-slate-200 dark:border-slate-800/80 shrink-0">
@@ -87,7 +85,7 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, collapsed, setCollapsed
                     GIT CLUB
                   </span>
                   <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 uppercase tracking-widest">
-                    CSPIT
+                    DEPSTAR
                   </span>
                 </div>
                 <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 tracking-wider uppercase truncate">
@@ -115,9 +113,8 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, collapsed, setCollapsed
                 if (setIsMobileOpen) setIsMobileOpen(false);
                 openModal('quick_action');
               }}
-              className={`w-full py-2.5 rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 ${
-                collapsed ? 'px-0' : 'px-4 text-xs'
-              }`}
+              className={`w-full py-2.5 rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 ${collapsed ? 'px-0' : 'px-4 text-xs'
+                }`}
               title="Launch Quick Actions"
             >
               <PlusCircle className="w-4 h-4 stroke-[2.5] shrink-0" />
@@ -147,10 +144,9 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, collapsed, setCollapsed
                     end={item.path === '/'}
                     onClick={() => setIsMobileOpen && setIsMobileOpen(false)}
                     className={({ isActive }) =>
-                      `flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all group ${
-                        isActive
-                          ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-sm'
-                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                      `flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all group ${isActive
+                        ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 shadow-sm'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
                       } ${collapsed ? 'justify-center px-0' : ''}`
                     }
                     title={collapsed ? item.name : undefined}
@@ -167,9 +163,8 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, collapsed, setCollapsed
         {/* Bottom User Profile Section */}
         <div className="p-3 border-t border-slate-200 dark:border-slate-800/80 shrink-0 bg-slate-50/50 dark:bg-slate-900/40">
           <div
-            className={`flex items-center gap-3 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors ${
-              collapsed ? 'justify-center p-1' : ''
-            }`}
+            className={`flex items-center gap-3 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors ${collapsed ? 'justify-center p-1' : ''
+              }`}
           >
             <div
               onClick={() => {

@@ -27,7 +27,7 @@ const ROLE_PROFILES = {
     title: 'Event Coordinator & Logistics Lead',
     department: 'Computer Engineering (CE)',
     year: '2nd Year',
-    college: 'CSPIT - CHARUSAT University',
+    college: 'DEPSTAR - CHARUSAT University',
     studentId: '23CE105',
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80',
     bio: 'Lead coordinator for Git Club summits, hackathons, and technical bootcamps at CHARUSAT Innovation Lab.',
@@ -45,7 +45,7 @@ const ROLE_PROFILES = {
     title: 'Club Member & Full Stack Contributor',
     department: 'Computer Engineering (CE)',
     year: '3rd Year',
-    college: 'CSPIT - CHARUSAT University',
+    college: 'DEPSTAR - CHARUSAT University',
     studentId: '22CE015',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
     bio: 'Club developer passionate about high-performance web systems and open-source contributions.',
@@ -116,12 +116,12 @@ export const AppProvider = ({ children }) => {
     return saved
       ? JSON.parse(saved)
       : {
-          eventNotifications: true,
-          memberNotifications: true,
-          projectUpdates: true,
-          soundAlerts: false,
-          twoFactorAuth: false,
-        };
+        eventNotifications: true,
+        memberNotifications: true,
+        projectUpdates: true,
+        soundAlerts: false,
+        twoFactorAuth: false,
+      };
   });
 
   // Modal system
@@ -319,7 +319,7 @@ export const AppProvider = ({ children }) => {
       eventId,
       name: studentDetails.name || currentUser.name,
       email: studentDetails.email || currentUser.email,
-      studentId: studentDetails.studentId || currentUser.studentId || '22CE042',
+      studentId: studentDetails.studentId || currentUser.studentId || '24DIT006',
       branch: studentDetails.branch || currentUser.department?.slice(0, 3) || 'CE',
       year: studentDetails.year || currentUser.year || '3rd Year',
       registeredAt: new Date().toLocaleString('en-US', {

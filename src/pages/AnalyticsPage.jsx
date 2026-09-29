@@ -172,10 +172,10 @@ export const AnalyticsPage = () => {
                           index === 0
                             ? '#10b981'
                             : index === 1
-                            ? '#3b82f6'
-                            : index === 2
-                            ? '#8b5cf6'
-                            : '#f59e0b'
+                              ? '#3b82f6'
+                              : index === 2
+                                ? '#8b5cf6'
+                                : '#f59e0b'
                         }
                       />
                     ))}
@@ -413,7 +413,7 @@ export const AnalyticsPage = () => {
           </div>
 
           <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
-            <span>Primary Hub: CHARUSAT CSPIT Campus</span>
+            <span>Primary Hub: CHARUSAT DEPSTAR Campus</span>
             <span className="text-emerald-500 font-bold">248 Enrolled</span>
           </div>
         </div>

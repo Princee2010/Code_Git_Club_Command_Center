@@ -150,7 +150,7 @@ export const MemberModal = () => {
               <input
                 type="text"
                 required
-                placeholder="22CE042"
+                placeholder="24DIT006"
                 value={formData.studentId}
                 onChange={(e) => setFormData({ ...formData, studentId: e.target.value })}
                 className="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none"

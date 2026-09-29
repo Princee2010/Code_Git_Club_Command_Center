@@ -46,9 +46,8 @@ const AppContent = () => {
 
       {/* Main Content Area */}
       <div
-        className={`flex-1 flex flex-col min-w-0 transition-all duration-300 ${
-          collapsed ? 'lg:pl-20' : 'lg:pl-64'
-        }`}
+        className={`flex-1 flex flex-col min-w-0 transition-all duration-300 ${collapsed ? 'lg:pl-20' : 'lg:pl-64'
+          }`}
       >
         <Topbar setIsMobileOpen={setIsMobileOpen} />
 
@@ -91,7 +90,7 @@ const AppContent = () => {
               <span className="font-bold text-slate-700 dark:text-slate-300 font-mono">
                 Git Club Command Center
               </span>
-              <span>• CSPIT, CHARUSAT University</span>
+              <span>• DEPSTAR, CHARUSAT University</span>
             </div>
 
             <div className="flex items-center gap-4 text-[11px]">
