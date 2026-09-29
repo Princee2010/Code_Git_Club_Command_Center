@@ -42,8 +42,10 @@ export const Dashboard = () => {
     activities,
     analyticsData,
     openModal,
+    theme,
   } = useApp();
 
+  const isDark = theme === 'dark';
   const navigate = useNavigate();
 
   // Find the top upcoming event
@@ -70,7 +72,7 @@ export const Dashboard = () => {
       change: metrics.membersGrowth,
       icon: Users,
       color: 'from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30',
-      iconBg: 'bg-emerald-500/20 text-emerald-400',
+      iconBg: 'bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400',
       link: '/members',
     },
     {
@@ -79,7 +81,7 @@ export const Dashboard = () => {
       change: `${metrics.eventsUpcomingCount} upcoming`,
       icon: Calendar,
       color: 'from-purple-500/20 to-pink-500/10 text-purple-400 border-purple-500/30',
-      iconBg: 'bg-purple-500/20 text-purple-400',
+      iconBg: 'bg-purple-500/10 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400',
       link: '/events',
     },
     {
@@ -88,7 +90,7 @@ export const Dashboard = () => {
       change: `${metrics.projectsActiveCount} active`,
       icon: FolderGit2,
       color: 'from-blue-500/20 to-cyan-500/10 text-blue-400 border-blue-500/30',
-      iconBg: 'bg-blue-500/20 text-blue-400',
+      iconBg: 'bg-blue-500/10 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400',
       link: '/projects',
     },
     {
@@ -97,7 +99,7 @@ export const Dashboard = () => {
       change: metrics.participantsGrowth,
       icon: Target,
       color: 'from-amber-500/20 to-orange-500/10 text-amber-400 border-amber-500/30',
-      iconBg: 'bg-amber-500/20 text-amber-400',
+      iconBg: 'bg-amber-500/10 text-amber-600 dark:bg-amber-500/20 dark:text-amber-400',
       link: '/analytics',
     },
   ];
@@ -105,17 +107,17 @@ export const Dashboard = () => {
   return (
     <div className="space-y-8 animate-in fade-in duration-300">
       {/* Welcome Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-950/60 via-slate-900 to-indigo-950/60 border border-slate-800 p-6 sm:p-8 backdrop-blur-xl">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-800 via-teal-900 to-indigo-950 border border-emerald-700/40 dark:border-slate-800 p-6 sm:p-8 backdrop-blur-xl shadow-xl">
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 mb-3">
               <Sparkles className="w-3.5 h-3.5" />
               <span>CHARUSAT Git Club Operations Live</span>
             </div>
             <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
               Welcome back, {currentUser.name.split(' ')[0]}! 👋
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 mt-1 max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-base text-emerald-100/90 dark:text-slate-300 mt-1 max-w-2xl leading-relaxed">
               Command center overview for club metrics, flagship events, student projects, and real-time activity feeds.
             </p>
           </div>
@@ -123,9 +125,9 @@ export const Dashboard = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => openModal('login_modal')}
-              className="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 border border-slate-700 transition-colors flex items-center gap-2 cursor-pointer"
+              className="px-4 py-2 rounded-xl text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors flex items-center gap-2 cursor-pointer backdrop-blur-md"
             >
-              <span>Role: <strong className="uppercase text-emerald-400">{role}</strong></span>
+              <span>Role: <strong className="uppercase text-emerald-300">{role}</strong></span>
               <ChevronRight className="w-3.5 h-3.5 opacity-60" />
             </button>
           </div>
@@ -327,25 +329,30 @@ export const Dashboard = () => {
               <div className="h-64 w-full mt-4">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={chartData} margin={{ top: 15, right: 10, left: -20, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.3} />
+                    <CartesianGrid
+                      strokeDasharray="3 3"
+                      stroke={isDark ? '#334155' : '#e2e8f0'}
+                      opacity={0.6}
+                    />
                     <XAxis
                       dataKey="month"
-                      stroke="#94a3b8"
+                      stroke={isDark ? '#94a3b8' : '#64748b'}
                       fontSize={12}
                       tickLine={false}
                     />
                     <YAxis
-                      stroke="#94a3b8"
+                      stroke={isDark ? '#94a3b8' : '#64748b'}
                       fontSize={12}
                       tickLine={false}
                       domain={[0, 180]}
                     />
                     <Tooltip
                       contentStyle={{
-                        backgroundColor: '#0f172a',
-                        borderColor: '#334155',
+                        backgroundColor: isDark ? '#0f172a' : '#ffffff',
+                        borderColor: isDark ? '#334155' : '#e2e8f0',
                         borderRadius: '12px',
-                        color: '#f8fafc',
+                        color: isDark ? '#f8fafc' : '#0f172a',
+                        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                         fontSize: '12px',
                       }}
                       formatter={(value, name, item) => [

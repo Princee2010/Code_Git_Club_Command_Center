@@ -28,7 +28,8 @@ import {
 } from 'lucide-react';
 
 export const AnalyticsPage = () => {
-  const { analyticsData, metrics, addToast } = useApp();
+  const { analyticsData, metrics, addToast, theme } = useApp();
+  const isDark = theme === 'dark';
 
   const handleExportReport = () => {
     addToast({
@@ -125,22 +126,32 @@ export const AnalyticsPage = () => {
                   layout="vertical"
                   margin={{ top: 10, right: 30, left: 40, bottom: 0 }}
                 >
-                  <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.3} />
-                  <XAxis type="number" stroke="#94a3b8" fontSize={12} tickLine={false} />
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    stroke={isDark ? '#334155' : '#e2e8f0'}
+                    opacity={0.6}
+                  />
+                  <XAxis
+                    type="number"
+                    stroke={isDark ? '#94a3b8' : '#64748b'}
+                    fontSize={12}
+                    tickLine={false}
+                  />
                   <YAxis
                     dataKey="event"
                     type="category"
-                    stroke="#94a3b8"
+                    stroke={isDark ? '#94a3b8' : '#64748b'}
                     fontSize={11}
                     tickLine={false}
                     width={90}
                   />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#0f172a',
-                      borderColor: '#334155',
+                      backgroundColor: isDark ? '#0f172a' : '#ffffff',
+                      borderColor: isDark ? '#334155' : '#e2e8f0',
                       borderRadius: '12px',
-                      color: '#f8fafc',
+                      color: isDark ? '#f8fafc' : '#0f172a',
+                      boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                       fontSize: '12px',
                     }}
                     formatter={(val, name, item) => [
@@ -213,15 +224,29 @@ export const AnalyticsPage = () => {
                       <stop offset="95%" stopColor="#6366f1" stopOpacity={0.0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.3} />
-                  <XAxis dataKey="month" stroke="#94a3b8" fontSize={12} tickLine={false} />
-                  <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} />
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    stroke={isDark ? '#334155' : '#e2e8f0'}
+                    opacity={0.6}
+                  />
+                  <XAxis
+                    dataKey="month"
+                    stroke={isDark ? '#94a3b8' : '#64748b'}
+                    fontSize={12}
+                    tickLine={false}
+                  />
+                  <YAxis
+                    stroke={isDark ? '#94a3b8' : '#64748b'}
+                    fontSize={12}
+                    tickLine={false}
+                  />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#0f172a',
-                      borderColor: '#334155',
+                      backgroundColor: isDark ? '#0f172a' : '#ffffff',
+                      borderColor: isDark ? '#334155' : '#e2e8f0',
                       borderRadius: '12px',
-                      color: '#f8fafc',
+                      color: isDark ? '#f8fafc' : '#0f172a',
+                      boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                       fontSize: '12px',
                     }}
                   />
@@ -296,10 +321,11 @@ export const AnalyticsPage = () => {
                   </Pie>
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#0f172a',
-                      borderColor: '#334155',
+                      backgroundColor: isDark ? '#0f172a' : '#ffffff',
+                      borderColor: isDark ? '#334155' : '#e2e8f0',
                       borderRadius: '12px',
-                      color: '#f8fafc',
+                      color: isDark ? '#f8fafc' : '#0f172a',
+                      boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                       fontSize: '12px',
                     }}
                     formatter={(val, name) => [`${val} Projects`, name]}
